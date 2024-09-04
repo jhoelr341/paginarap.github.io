@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jay-Z</title>
+    <style>
+        body {
+            background-color: #647e53f1;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #000000;
+        }
+        .content {
+            
+            background-color: #67d4386f;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgb(53, 124, 47);
+
+        }
+        .images {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .images img {
+            width: 200px;
+            height: 150px;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+        .images img:hover {
+            transform: scale(1.1);
+            border: 2px solid #ffff00;
+        }
+        .images .caption {
+            text-align: center;
+            margin-top: 5px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(49, 48, 48, 0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+        .modal-content, #caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #fafafa;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #6b6f6b;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Jay-Z</h1>
+        <h2>Todo lo que necesitas saber</h2>
+        <div class="content">
+            <p>Jay-Z, cuyo nombre real es Shawn Corey Carter, es un rapero, empresario y productor discográfico estadounidense, considerado uno de los artistas más influyentes en la historia del hip-hop. Nació el 4 de diciembre de 1969 en Brooklyn, Nueva York, y comenzó su carrera musical en la década de 1990.
+                Jay-Z es conocido no solo por su talento como rapero, sino también por su habilidad para los negocios. A lo largo de su carrera, ha lanzado múltiples álbumes aclamados, incluyendo Reasonable Doubt (1996), The Blueprint (2001), y The Black Album (2003). Sus letras a menudo tratan sobre su ascenso desde la pobreza, la vida en las calles, y su transición hacia el éxito empresarial.</p>
+        </div>
+        <div class="images">
+            <div>
+                <img src="ja1.jpeg" alt="Imagen 1" onclick="openModal(this)">
+                <div class="caption">Uno de los raperos mas antiguos.</div>
+            </div>
+            <div>
+                <img src="ja2.jpeg" alt="Imagen 2" onclick="openModal(this)">
+                <div class="caption">Es uno de los mas conocidos en el mundo de los raperos.</div>
+            </div>
+            <div>
+                <img src="ja3.jpeg" alt="Imagen 3" onclick="openModal(this)">
+                <div class="caption">lleno estacion con sus conciertos.</div>
+            </div>
+            <div>
+                <img src="ja4.jpeg" alt="Imagen 4" onclick="openModal(this)">
+                <div class="caption">tiene muchas canciones que se hicieron famosas.</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">×</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        function openModal(element) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            modal.style.display = "block";
+            modalImg.src = element.src;
+            captionText.innerHTML = element.nextElementSibling.innerHTML;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
